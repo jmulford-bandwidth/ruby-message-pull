@@ -14,11 +14,9 @@ def get_messages(client, start_date, end_date)
   begin
     for x in 0..1000
       messages = Bandwidth::Message.list(client, {:fromDateTime => start_date, :toDateTime => end_date, :size => 2})
-      puts messages
     end
   rescue Bandwidth::Errors::GenericError => e
     #Wait 5 seconds, then try again
-    puts "waiting"
     sleep(5)
     get_messages(client, start_date, end_date)
   end
