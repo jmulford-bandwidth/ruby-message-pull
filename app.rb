@@ -16,7 +16,7 @@ def get_messages(client, start_date, end_date)
   rescue Bandwidth::Errors::GenericError => e
     #Wait 5 seconds, then try again
     sleep(5)
-    get_messages(client, start_date, end_date)
+    return get_messages(client, start_date, end_date)
   end
   return messages
 end
