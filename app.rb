@@ -12,9 +12,7 @@ BANDWIDTH_API_SECRET = ENV['BANDWIDTH_API_SECRET']
 
 def get_messages(client, start_date, end_date)
   begin
-    for x in 0..1000
-      messages = Bandwidth::Message.list(client, {:fromDateTime => start_date, :toDateTime => end_date, :size => 2})
-    end
+    messages = Bandwidth::Message.list(client, {:fromDateTime => start_date, :toDateTime => end_date, :size => 1000})
   rescue Bandwidth::Errors::GenericError => e
     #Wait 5 seconds, then try again
     sleep(5)
