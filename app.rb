@@ -31,7 +31,7 @@ def convert_ruby_datetime_to_bw_datetime(dt)
   return "%s-%s-%s %s:%s:%s" % [dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second]
 end
 
-CSV.open("data_test_2.csv", "w") do |csv|
+CSV.open("data.csv", "w") do |csv|
   client = Bandwidth::Client.new(:user_id => BANDWIDTH_USER_ID, :api_token => BANDWIDTH_API_TOKEN, :api_secret => BANDWIDTH_API_SECRET)
 
   messages = get_messages(client, START_DATE, END_DATE)
